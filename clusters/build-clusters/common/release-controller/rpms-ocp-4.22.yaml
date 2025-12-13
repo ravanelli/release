@@ -1481,14 +1481,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: base-4-22-rhel96
+  name: base-4-22-rhel98
   namespace: ocp
 spec:
   ports:
   - port: 80
     targetPort: 8080
   selector:
-    app: base-4-22-rhel96
+    app: base-4-22-rhel98
   type: ClusterIP
 ---
 #---------------------------------------------------------------------------------
@@ -1504,20 +1504,20 @@ metadata:
     keel.sh/pollSchedule: '@every 5m'
     keel.sh/trigger: poll
   labels:
-    app: base-4-22-rhel96
-  name: base-4-22-rhel96
+    app: base-4-22-rhel98
+  name: base-4-22-rhel98
   namespace: ocp
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: base-4-22-rhel96
+      app: base-4-22-rhel98
   template:
     metadata:
       annotations:
         cluster-autoscaler.kubernetes.io/safe-to-evict: 'true'
       labels:
-        app: base-4-22-rhel96
+        app: base-4-22-rhel98
     spec:
       containers:
       - command:
@@ -1556,8 +1556,8 @@ spec:
       volumes:
       - configMap:
           items:
-          - key: ocp-4.22-rhel96.repo
-            path: ocp-4.22-rhel96.repo
+          - key: ocp-4.22-rhel98.repo
+            path: ocp-4.22-rhel98.repo
           name: base-repos
         name: repos
       - name: key
